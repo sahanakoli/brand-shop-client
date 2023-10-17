@@ -5,13 +5,23 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import Root from './layer/Root';
+import ErrorElement from './component/errorElement/ErrorElement';
+import Home from './pages/Home';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
-  },
+    element: <Root></Root>,
+    errorElement:<ErrorElement></ErrorElement>,
+    children: [
+    {
+      path:'/',
+      element:<Home></Home>
+    }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

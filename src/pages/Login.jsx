@@ -1,3 +1,4 @@
+import Navbar from "../sheard/Navbar";
 
 const Login = () => {
 
@@ -5,7 +6,8 @@ const Login = () => {
     
     return (
         <div>
-            <h2>Login page</h2>
+            <Navbar></Navbar>
+            <h2 className=" text-2xl">Login page</h2>
         </div>
         
     );

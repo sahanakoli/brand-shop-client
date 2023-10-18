@@ -22,7 +22,8 @@ const Navbar = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <img className="w-28 h-24" src="https://i.ibb.co/5cmynjr/logo-fashion.png" alt="" />
+                    <a className=" normal-case text-xl">Fashion & Apparel</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -30,7 +31,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <a className="btn">Login</a>
                 </div>
             </div>
         </div>

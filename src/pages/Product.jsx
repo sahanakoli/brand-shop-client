@@ -9,8 +9,22 @@ const Product = () => {
         const name = form.name.value;
         const photo = form.photo.value;
 
-        const product = {name, photo}
-        console.log(product);
+        const brandItem = {name, photo}
+        console.log(brandItem);
+
+        // send data to the server
+
+        fetch('http://localhost:5000/brand', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(brandItem)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
     return (
         <div>

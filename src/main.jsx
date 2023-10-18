@@ -12,6 +12,7 @@ import AddProduct from './pages/AddProduct';
 import MyCart from './pages/MyCart';
 import Login from './pages/Login';
 import Product from './pages/Product';
+import UpdateProduct from './pages/UpdateProduct';
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
     {
       path:'/product',
       element:<Product></Product>
+    },
+    {
+      path:'/updateProduct/:id',
+      element:<UpdateProduct></UpdateProduct>
     }
     ]
   }

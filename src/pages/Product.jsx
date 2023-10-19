@@ -30,7 +30,7 @@ const Product = () => {
         <div>
             <Navbar></Navbar>
             <form onSubmit={handleProduct}>
-                {/* form name and quantity row */}
+                {/* form name  */}
                 <div className="md:flex mb-8 mt-10">
                     <div className="form-control md:w-1/2">
                         <label className="label">

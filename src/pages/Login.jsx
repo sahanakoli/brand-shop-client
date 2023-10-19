@@ -5,7 +5,7 @@ import { FaEyeSlash, FaEye } from "react-icons/fa6"
 import {  useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from 'sweetalert2'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -16,6 +16,9 @@ const Login = () => {
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -51,6 +54,7 @@ const Login = () => {
                 'Login successfully ',
                 'success'
               ))
+              navigate(location?.state ? location.state : '/');
          })
          .catch(error =>{
             console.error(error);

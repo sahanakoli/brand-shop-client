@@ -16,6 +16,8 @@ import UpdateProduct from './pages/UpdateProduct';
 import AuthProvider from './provider/AuthProvider';
 import Registration from './sheard/Registration';
 import BrandProduct from './pages/BrandProduct';
+import NewBrand from './component/NewBrand';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 
@@ -32,11 +34,11 @@ const router = createBrowserRouter([
     },
     {
       path:'/addProduct',
-      element:<AddProduct></AddProduct>
+      element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
     },
     {
       path:'/myCart',
-      element:<MyCart></MyCart>,
+      element:<PrivateRoute><MyCart></MyCart></PrivateRoute>,
       loader: () => fetch('http://localhost:5000/product')
     },
     {
@@ -57,7 +59,12 @@ const router = createBrowserRouter([
     },
     {
       path:'/brandProduct',
-      element:<BrandProduct></BrandProduct>
+      element:<BrandProduct></BrandProduct>,
+      // loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.brand_name}`)
+    },
+    {
+      path:'/newBrand',
+      element:<NewBrand></NewBrand>
     }
     ]
   }

@@ -1,9 +1,10 @@
 import Navbar from "../sheard/Navbar";
 
-const UpdateProduct = () => {
 
-    const handleUpdate = e =>{
-        e.preventDefault();
+const NewBrand = () => {
+
+    const handleBrand = e =>{
+       e.preventDefault();
 
         const form = e.target;
         const name = form.name.value;
@@ -12,20 +13,28 @@ const UpdateProduct = () => {
         const photo = form.photo.value;
         const price = form.price.value;
         const rating = form.rating.value;
+        const details = form.details.value;
         
 
-        const updateProduct = {name,brand_name, type,price,rating, photo}
-        console.log(updateProduct);
+        const newBrand = {name,brand_name, type,price,rating,details, photo}
+        console.log(newBrand);
 
-        
+        fetch('http://localhost:5000/brandProduct', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newBrand)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
-    
     return (
         <div>
             <Navbar></Navbar>
-            <div className="bg-base-200 shadow-lg p-24">
-            <h2 className=" text-2xl font-semibold text-center">Update Product</h2>
-            <form onSubmit={handleUpdate}>
+            <form onSubmit={handleBrand}>
                 {/* form name  */}
                 <div className="md:flex mb-8 mt-10">
                     <div className="form-control md:w-1/2">
@@ -65,7 +74,7 @@ const UpdateProduct = () => {
                         </div>
                     </div>
                 
-                {/* form rating and photo Url row */}
+                {/* form photo Url row */}
                 <div className="md:flex mb-8">
                 <div className="form-control md:w-1/2 ml-4">
                             <label className="label">
@@ -84,11 +93,20 @@ const UpdateProduct = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Submit" className="btn btn-primary w-full text-white" />
+                <div className="mb-8">
+                <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Details</span>
+                            </label>
+                            <label className="input-group">
+                                <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+                            </label>
+                        </div>
+                </div>
+                <input type="submit" value="Add Brand" className="btn  bg-[#D2B48C] w-full text-black" />
             </form>
-        </div>
         </div>
     );
 };
 
-export default UpdateProduct;
+export default NewBrand;

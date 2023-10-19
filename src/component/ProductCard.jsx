@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import {RiDeleteBin5Line} from 'react-icons/ri'
 import Swal from 'sweetalert2'
 
 
@@ -53,7 +52,7 @@ const ProductCard = ({ product, products, setProducts }) => {
                     <p className="text-base font-medium">Description: {description}</p>
                     <p className="text-base font-medium">Rating: {rating}</p>
                     <div className="card-actions justify-end">
-                        <button onClick={() => handleDelete(_id)} className="btn "><RiDeleteBin5Line></RiDeleteBin5Line></button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-primary ">Delete</button>
                     </div>
                 </div>
             </div>

@@ -1,21 +1,23 @@
-// import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import BrandBanner from "../sheard/BrandBanner";
 import Navbar from "../sheard/Navbar";
-// import BrandProductCard from "../component/BrandProductCard";
+import { useState } from "react";
+import BrandProductCard from "../component/BrandProductCard";
 
 
 const BrandProduct = () => {
-    // const brands = useLoaderData();
+    const loadedbrands = useLoaderData();
+    const [brands,setBrands] = useState(loadedbrands)
     return (
         <div>
             <Navbar></Navbar>
             <BrandBanner></BrandBanner>
-           <h2 className=" text-4xl text-center mt-10">Brand Product</h2> 
-           {/* <div>
+           <h2 className=" text-4xl text-center mt-10">Brand Product: {brands.length}</h2> 
+           <div>
             {
-                brands.map(brand => <BrandProductCard key={brand._id} brand={brand}></BrandProductCard>)
+                brands.map(brand => <BrandProductCard key={brand._id} brand={brand} brands={brands} setBrands={setBrands}></BrandProductCard>)
             }
-           </div> */}
+           </div>
         </div>
     );
 };

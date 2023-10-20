@@ -55,12 +55,13 @@ const router = createBrowserRouter([
     },
     {
       path:'/updateProduct/:id',
-      element:<UpdateProduct></UpdateProduct>
+      element:<UpdateProduct></UpdateProduct>,
+      loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params._id}`)
     },
     {
-      path:'/brandProduct',
+      path:'/brandProduct/:brandName',
       element:<BrandProduct></BrandProduct>,
-      // loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.brand_name}`)
+      loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.brand_name}`)
     },
     {
       path:'/newBrand',

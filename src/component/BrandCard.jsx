@@ -7,8 +7,8 @@ const BrandCard = ({brand}) => {
     const {brand_name, photo} = brand;
     return (
         <div>
-            <Link to="/brandProduct">
-            <div className="card w-full h-[400px] mx-auto bg-base-100 shadow-xl">
+            <Link to={`/brandProduct/${brand_name}`}>
+            <div className="card w-9/12 h-[350px] mx-auto bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={photo} alt="Shoes" className="rounded-xl" />
                 </figure>

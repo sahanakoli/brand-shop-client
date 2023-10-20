@@ -22,7 +22,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-lg">
+            <div className="navbar bg-base-100 shadow-lg w-11/12 mx-auto rounded-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,7 +32,7 @@ const Navbar = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <img className="w-28 h-24" src="https://i.ibb.co/5cmynjr/logo-fashion.png" alt="" />
+                    <img className="w-24 h-20" src="https://i.ibb.co/rcH1cB6/lo.png" alt="" />
                     <a className=" normal-case text-xl">Fashion & Apparel</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">

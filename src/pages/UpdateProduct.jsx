@@ -1,12 +1,12 @@
 
-// import { useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Navbar from "../sheard/Navbar";
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 const UpdateProduct = () => {
 
-    // const product = useLoaderData();
-    // console.log(product);
+    const product = useLoaderData();
+    console.log(product);
     const handleUpdate = e =>{
         e.preventDefault();
 
@@ -23,25 +23,25 @@ const UpdateProduct = () => {
         console.log(updateProduct);
 
         // send data to the server
-        // fetch(`http://localhost:5000/brandProduct/${params._id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(updateProduct)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        //     if(data.modifiedCount > 0){
-        //         Swal.fire({
-        //             title: 'Success!',
-        //             text: 'Coffee Updated Successfully',
-        //             icon: 'success',
-        //             confirmButtonText: 'Cool'
-        //           })
-        //     }
-        // })
+        fetch(`http://localhost:5000/brandProduct/${params._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateProduct)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Product Updated Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
 
         
     }

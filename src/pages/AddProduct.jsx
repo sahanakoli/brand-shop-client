@@ -9,18 +9,18 @@ const AddProduct = () => {
 
         const form = e.target;
         const name = form.name.value;
-        const brandName = form.brandName.value;
+        const brand_name = form.brand_name.value;
         const type = form.type.value;
         const price = form.price.value;
-        const description = form.description.value;
+        const details = form.details.value;
         const rating = form.rating.value;
         const photo = form.photo.value;
 
-        const productItem = {name, brandName, type, price, description, rating, photo}
+        const productItem = {name, brand_name, type, price, details, rating, photo}
         console.log(productItem);
 
         // send data to the server
-        fetch('http://localhost:5000/product', {
+        fetch('http://localhost:5000/brandProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -62,7 +62,7 @@ const AddProduct = () => {
                                 <span className="label-text">Brand Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="brandName" placeholder="Brand Name" className="input input-bordered w-full" />
+                                <input type="text" name="brand_name" placeholder="Brand Name" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const AddProduct = () => {
                                 <span className="label-text">Short Description</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="description" placeholder="Short description" className="input input-bordered w-full" />
+                                <input type="text" name="details" placeholder="Short description" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">

@@ -17,11 +17,11 @@ const BrandProductCard = ({brand}) => {
                     <h2 className="card-title text-2xl">Name: {name}</h2>
                     <h2 className="text-2xl font-medium">Brand Name: {brand_name}</h2>
                     <p className="text-base font-medium">Type: {type}</p>
-                    <p className="text-base font-medium">Price: {price}</p>
+                    <p className="text-base font-medium">Price: ${price}</p>
                     <p className="text-base font-medium">Rating: {rating}</p>
                     <div className="card-actions justify-end">
-                        <Link to="/details"><button className="btn btn-primary ">Details</button></Link>
-                        <Link to={`updateProduct/${_id}`}><button className="btn btn-primary ">Update</button></Link>
+                        <Link to={`/details/${_id}`}><button className="btn btn-primary ">Details</button></Link>
+                        <Link to={`/updateProduct/${_id}`}><button className="btn btn-primary ">Update</button></Link>
                     </div>
                 </div>
             </div>

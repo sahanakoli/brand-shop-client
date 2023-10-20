@@ -1,7 +1,7 @@
 
 const Fashion = () => {
     return (
-        <div className=" flex-row md:flex lg:flex justify-center items-center gap-16 mt-20  mx-auto">
+        <div className=" flex-row md:flex-row lg:flex justify-center items-center gap-16 mt-20  mx-auto">
             <div>
                 <img className=" w-[550px] h-[750px] rounded-lg" src="https://i.ibb.co/yRrZ7r7/pic.png" alt="" />
             </div>

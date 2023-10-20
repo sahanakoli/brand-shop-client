@@ -16,8 +16,9 @@ import UpdateProduct from './pages/UpdateProduct';
 import AuthProvider from './provider/AuthProvider';
 import Registration from './sheard/Registration';
 import BrandProduct from './pages/BrandProduct';
-import NewBrand from './component/NewBrand';
+// import NewBrand from './component/NewBrand';
 import PrivateRoute from './routes/PrivateRoute';
+import Details from './component/Details';
 
 
 
@@ -53,9 +54,20 @@ const router = createBrowserRouter([
       path:'/product',
       element:<Product></Product>
     },
+    // {
+    //   path:'/updateProduct/:id',
+    //   element:<UpdateProduct></UpdateProduct>,
+    //   loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.id}`)
+    // },
     {
-      path:'/updateProduct/:id',
-      element:<UpdateProduct></UpdateProduct>,
+      path: "/updateProduct/:id",
+      element: <UpdateProduct />,
+      loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
+      
+    },
+    {
+      path:'/details/:id',
+      element:<PrivateRoute><Details></Details></PrivateRoute>,
       loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.id}`)
     },
     {
@@ -63,10 +75,10 @@ const router = createBrowserRouter([
       element:<BrandProduct></BrandProduct>,
       loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.brandName}`)
     },
-    {
-      path:'/newBrand',
-      element:<NewBrand></NewBrand>
-    }
+    // {
+    //   path:'/newBrand',
+    //   element:<NewBrand></NewBrand>
+    // }
     ]
   }
 ]);

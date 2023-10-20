@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../sheard/Navbar";
@@ -6,6 +7,7 @@ import Swal from 'sweetalert2'
 const UpdateProduct = () => {
 
     const product = useLoaderData();
+    const {_id, name, brand_name, type, price, rating, photo} = product;
     console.log(product);
     const handleUpdate = e =>{
         e.preventDefault();
@@ -19,16 +21,16 @@ const UpdateProduct = () => {
         const rating = form.rating.value;
         
 
-        const updateProduct = {name,brand_name, type,price,rating, photo}
-        console.log(updateProduct);
+        const updatedProduct = {name,brand_name, type,price,rating, photo}
+        console.log(updatedProduct);
 
         // send data to the server
-        fetch(`http://localhost:5000/brandProduct/${params._id}`, {
+        fetch(`http://localhost:5000/brandProduct/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updateProduct)
+            body: JSON.stringify(updatedProduct)
         })
         .then(res => res.json())
         .then(data => {
@@ -59,7 +61,7 @@ const UpdateProduct = () => {
                             <span className="label-text">Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" defaultValue={name} placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -67,7 +69,7 @@ const UpdateProduct = () => {
                                 <span className="label-text">Brand Name</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="brand_name" placeholder="Brand_name" className="input input-bordered w-full" />
+                                <input type="text" name="brand_name" defaultValue={brand_name} placeholder="Brand_name" className="input input-bordered w-full" />
                             </label>
                         </div>
                 </div>
@@ -78,7 +80,7 @@ const UpdateProduct = () => {
                                 <span className="label-text">Type</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="type" placeholder="Type" className="input input-bordered w-full" />
+                                <input type="text" name="type" defaultValue={type} placeholder="Type" className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
@@ -86,19 +88,19 @@ const UpdateProduct = () => {
                                 <span className="label-text">Price</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+                                <input type="text" name="price" defaultValue={price} placeholder="Price" className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
                 
                 {/* form rating and photo Url row */}
                 <div className="md:flex mb-8">
-                <div className="form-control md:w-1/2 ml-4">
+                <div className="form-control md:w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
+                                <input type="text" name="rating" defaultValue={rating} placeholder="Rating" className="input input-bordered w-full" />
                             </label>
                         </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -106,7 +108,7 @@ const UpdateProduct = () => {
                             <span className="label-text">Photo URL</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered w-full" />
+                            <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>

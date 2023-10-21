@@ -2,8 +2,8 @@
 
 const LatestProduct = () => {
     return (
-        <div className="mt-10">
-            <h2 className=" text-4xl font-semibold text-center">Explore Latest Product</h2>
+        <div className="mt-6">
+            <h2 className=" text-4xl font-bold text-center">Explore New Collection</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-8/12 mx-auto mt-16 mb-6">
                     <div>
                     <img className=" w-11/12 h-44 rounded-lg" src="https://i.ibb.co/2FkDGDZ/nike-p.jpg" alt="" />

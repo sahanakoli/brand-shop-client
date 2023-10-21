@@ -10,11 +10,10 @@ const Product = () => {
         const photo = form.photo.value;
 
         const brandItem = {name, photo}
-        console.log(brandItem);
 
         // send data to the server
 
-        fetch('http://localhost:5000/brand', {
+        fetch('https://brand-shop-server-three.vercel.app/brand', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

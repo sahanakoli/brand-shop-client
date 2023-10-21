@@ -8,7 +8,6 @@ const UpdateProduct = () => {
 
     const product = useLoaderData();
     const {_id, name, brand_name, type, price, rating, photo} = product;
-    console.log(product);
     const handleUpdate = e =>{
         e.preventDefault();
 
@@ -22,10 +21,9 @@ const UpdateProduct = () => {
         
 
         const updatedProduct = {name,brand_name, type,price,rating, photo}
-        console.log(updatedProduct);
 
         // send data to the server
-        fetch(`http://localhost:5000/brandProduct/${_id}`, {
+        fetch(`https://brand-shop-server-three.vercel.app/brandProduct/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +38,7 @@ const UpdateProduct = () => {
                     title: 'Success!',
                     text: 'Product Updated Successfully',
                     icon: 'success',
-                    confirmButtonText: 'Cool'
+                    confirmButtonText: 'OK'
                   })
             }
         })
@@ -51,11 +49,11 @@ const UpdateProduct = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="bg-base-200 shadow-lg p-24">
+            <div className="bg-base-200 w-11/12 mx-auto mt-4 mb-4 rounded-lg shadow-lg p-24">
             <h2 className=" text-2xl font-semibold text-center">Update Product</h2>
             <form onSubmit={handleUpdate}>
-                {/* form name  */}
-                <div className="md:flex mb-8 mt-10">
+                {/* form name and brandName row  */}
+                <div className="md:flex mb-4 md:mb-8 lg:mb-8 mt-10">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -64,7 +62,7 @@ const UpdateProduct = () => {
                             <input type="text" name="name" defaultValue={name} placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                             <label className="label">
                                 <span className="label-text">Brand Name</span>
                             </label>
@@ -73,8 +71,8 @@ const UpdateProduct = () => {
                             </label>
                         </div>
                 </div>
-                {/* type and price */}
-                <div className="md:flex mb-8">
+                {/* type and price row */}
+                <div className="md:flex mb-4 md:mb-8 lg:mb-8">
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Type</span>
@@ -83,7 +81,7 @@ const UpdateProduct = () => {
                                 <input type="text" name="type" defaultValue={type} placeholder="Type" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
@@ -93,8 +91,8 @@ const UpdateProduct = () => {
                         </div>
                     </div>
                 
-                {/* form rating and photo Url row */}
-                <div className="md:flex mb-8">
+                {/*  rating and photo Url row */}
+                <div className="md:flex mb-4 md:mb-8 lg:mb-8">
                 <div className="form-control md:w-1/2 ">
                             <label className="label">
                                 <span className="label-text">Rating</span>
@@ -103,7 +101,7 @@ const UpdateProduct = () => {
                                 <input type="text" name="rating" defaultValue={rating} placeholder="Rating" className="input input-bordered w-full" />
                             </label>
                         </div>
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>

@@ -16,7 +16,7 @@ import UpdateProduct from './pages/UpdateProduct';
 import AuthProvider from './provider/AuthProvider';
 import Registration from './sheard/Registration';
 import BrandProduct from './pages/BrandProduct';
-// import NewBrand from './component/NewBrand';
+import NewBrand from './component/NewBrand';
 import PrivateRoute from './routes/PrivateRoute';
 import Details from './component/Details';
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     {
       path:'/',
       element:<Home></Home>,
-      loader: () => fetch('http://localhost:5000/brand')
+      loader: () => fetch('https://brand-shop-server-three.vercel.app/brand')
     },
     {
       path:'/addProduct',
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     {
       path:'/myCart',
       element:<PrivateRoute><MyCart></MyCart></PrivateRoute>,
-      loader: () => fetch('http://localhost:5000/product')
+      loader: () => fetch('https://brand-shop-server-three.vercel.app/cart')
     },
     {
       path:'/login',
@@ -54,31 +54,26 @@ const router = createBrowserRouter([
       path:'/product',
       element:<Product></Product>
     },
-    // {
-    //   path:'/updateProduct/:id',
-    //   element:<UpdateProduct></UpdateProduct>,
-    //   loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.id}`)
-    // },
     {
       path: "/updateProduct/:id",
       element: <UpdateProduct />,
-      loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
+      loader: ({ params }) => fetch(`https://brand-shop-server-three.vercel.app/users/${params.id}`)
       
     },
     {
       path:'/details/:id',
       element:<PrivateRoute><Details></Details></PrivateRoute>,
-      loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.id}`)
+      loader: ({params}) => fetch(`https://brand-shop-server-three.vercel.app/users/${params.id}`)
     },
     {
       path:'/brandProduct/:brandName',
       element:<BrandProduct></BrandProduct>,
-      loader: ({params}) => fetch(`http://localhost:5000/brandProduct/${params.brandName}`)
+      loader: ({params}) => fetch(`https://brand-shop-server-three.vercel.app/brandProduct/${params.brandName}`)
     },
-    // {
-    //   path:'/newBrand',
-    //   element:<NewBrand></NewBrand>
-    // }
+    {
+      path:'/newBrand',
+      element:<NewBrand></NewBrand>
+    }
     ]
   }
 ]);

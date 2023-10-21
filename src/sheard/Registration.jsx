@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FcGoogle } from 'react-icons/fc'
+import { ImGoogle3 } from 'react-icons/im'
 import { FaEyeSlash, FaEye } from "react-icons/fa6"
 import Swal from 'sweetalert2'
 import { AuthContext } from "../provider/AuthProvider";
@@ -79,10 +79,10 @@ const Registration = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-5xl font-bold">Registration now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleRegistration} className="card-body">
@@ -121,8 +121,8 @@ const Registration = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
-                                <button onClick={handleGoogle}  className="btn font-medium btn-primary mt-4"><FcGoogle className="mr-2 w-4 h-4"></FcGoogle>Google Sign In</button>
+                                <button className="btn btn-primary">Registration</button>
+                                <button onClick={handleGoogle}  className="btn font-medium btn-primary mt-4"><ImGoogle3 className="mr-2 w-4 h-4"></ImGoogle3>Google Sign In</button>
                             </div>
                         </form>
                     </div>

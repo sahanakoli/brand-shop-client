@@ -33,7 +33,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <img className="w-24 h-20" src="https://i.ibb.co/rcH1cB6/lo.png" alt="" />
-                    <a className=" normal-case text-xl">Fashion & Apparel</a>
+                    <a className=" normal-case text-xl font-semibold">Fashion & Apparel</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -53,10 +53,10 @@ const Navbar = () => {
                     }
                     {
         user ?
-        <button onClick={handleSignOut} className="btn bg-blue-200">Sign Out</button>
+        <button onClick={handleSignOut} className="btn btn-primary text-white">Sign Out</button>
         :
         <Link to="/login">
-            <button className="btn bg-blue-200">Login</button>
+            <button className="btn btn-primary text-white">Login</button>
         </Link>
       }
                 </div>

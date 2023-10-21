@@ -17,9 +17,8 @@ const NewBrand = () => {
         
 
         const newBrand = {name,brand_name, type,price,rating,details, photo}
-        console.log(newBrand);
 
-        fetch('http://localhost:5000/brandProduct', {
+        fetch('https://brand-shop-server-three.vercel.app/brandProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

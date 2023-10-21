@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 
 const ProductCard = ({ product, products, setProducts }) => {
 
-    const { _id, name, brandName, type, price, description, rating, photo } = product;
+    const { _id, name, brand_name, type, price, rating, photo } = product;
 
     const handleDelete = _id => {
         console.log(_id);
@@ -19,7 +19,7 @@ const ProductCard = ({ product, products, setProducts }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/product/${_id}`, {
+                fetch(`https://brand-shop-server-three.vercel.app/cart/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -36,23 +36,21 @@ const ProductCard = ({ product, products, setProducts }) => {
                         }
 
                     })
-                console.log('delete confirmed')
             }
         })
     }
     return (
-        <div className="mt-6 mb-8">
-            <div className="card w-11/12 mx-auto card-side bg-base-100 shadow-xl">
+        <div className="mt-8 mb-8">
+            <div className="card w-10/12 mx-auto card-side bg-base-100 shadow-xl">
                 <figure><img className='h-full w-[300px]' src={photo} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-2xl">Name: {name}</h2>
-                    <h2 className="text-2xl font-medium">Brand Name: {brandName}</h2>
+                    <h2 className="text-2xl font-medium">Brand Name: {brand_name}</h2>
                     <p className="text-base font-medium">Type: {type}</p>
-                    <p className="text-base font-medium">Price: {price}</p>
-                    <p className="text-base font-medium">Description: {description}</p>
+                    <p className="text-base font-medium">Price: ${price}</p>
                     <p className="text-base font-medium">Rating: {rating}</p>
                     <div className="card-actions justify-end">
-                        <button onClick={() => handleDelete(_id)} className="btn btn-primary ">Delete</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-primary text-white ">Delete</button>
                     </div>
                 </div>
             </div>

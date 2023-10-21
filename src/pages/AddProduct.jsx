@@ -12,15 +12,14 @@ const AddProduct = () => {
         const brand_name = form.brand_name.value;
         const type = form.type.value;
         const price = form.price.value;
-        const details = form.details.value;
+        const description = form.description.value;
         const rating = form.rating.value;
         const photo = form.photo.value;
 
-        const productItem = {name, brand_name, type, price, details, rating, photo}
-        console.log(productItem);
+        const productItem = {name, brand_name, type, price, description, rating, photo}
 
         // send data to the server
-        fetch('http://localhost:5000/brandProduct', {
+        fetch('https://brand-shop-server-three.vercel.app/brandProduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -29,7 +28,6 @@ const AddProduct = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success!',
@@ -44,11 +42,11 @@ const AddProduct = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className=" bg-base-200 shadow-lg p-24">
+            <div className=" bg-base-200 w-11/12 mx-auto mt-4 mb-4 shadow-lg rounded-lg p-24">
                 <h2 className=" text-3xl font-bold text-center ">Add Product</h2>
                 <form onSubmit={handleAddProduct}>
-                    {/* form name and brand name row */}
-                    <div className="md:flex mb-8 mt-10">
+                    {/*  name and brand name row */}
+                    <div className="md:flex mb-4 md:mb-8 lg:mb-8 mt-4">
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -57,7 +55,7 @@ const AddProduct = () => {
                                 <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                             <label className="label">
                                 <span className="label-text">Brand Name</span>
                             </label>
@@ -66,8 +64,8 @@ const AddProduct = () => {
                             </label>
                         </div>
                     </div>
-                    {/* type and price */}
-                    <div className="md:flex mb-8">
+                    {/* type and price row */}
+                    <div className="md:flex mb-4 md:mb-8 lg:mb-8">
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Type</span>
@@ -76,7 +74,7 @@ const AddProduct = () => {
                                 <input type="text" name="type" placeholder="Type" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
@@ -85,17 +83,17 @@ const AddProduct = () => {
                             </label>
                         </div>
                     </div>
-                    {/* form description and rating */}
-                    <div className="md:flex mb-8">
+                    {/* form description and rating row */}
+                    <div className="md:flex mb-4 md:mb-8 lg:mb-8">
                         <div className="form-control md:w-1/2">
                             <label className="label">
                                 <span className="label-text">Short Description</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="details" placeholder="Short description" className="input input-bordered w-full" />
+                                <input type="text" name="description" placeholder="Short description" className="input input-bordered w-full" />
                             </label>
                         </div>
-                        <div className="form-control md:w-1/2 ml-4">
+                        <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                             <label className="label">
                                 <span className="label-text">Rating</span>
                             </label>
@@ -105,7 +103,7 @@ const AddProduct = () => {
                         </div>
                     </div>
                     {/* form photo Url row */}
-                    <div className=" mb-8">
+                    <div className="mb-4 md:mb-8 lg:mb-8">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
@@ -115,7 +113,7 @@ const AddProduct = () => {
                             </label>
                         </div>
                     </div>
-                    <input type="submit" value="Add Product" className="btn btn-neutral w-full text-white" />
+                    <input type="submit" value="Add Product" className="btn btn-primary w-full text-white" />
                 </form>
             </div>
         </div>

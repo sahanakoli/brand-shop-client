@@ -2,7 +2,7 @@
 const ErrorElement = () => {
     return (
         <div className="flex justify-center items-center">
-           <h2 className=" text-2xl font-bold">Oops!!<br/>No Data Fund</h2> 
+           <img  src="https://i.ibb.co/gvmdPt9/404-error.jpg" alt="" /> 
         </div>
     );
 };
